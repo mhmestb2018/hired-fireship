@@ -1,0 +1,95 @@
+<nav class="topnav">
+  <allow-if level="pro">
+    <span slot="falsey">
+      
+        <div class="item item-pro">
+            
+          <a href="/pro">
+            PRO
+          </a>
+      </div>
+    </span>
+  </allow-if>
+  
+
+
+  <allow-if level="user" class="hide-lg">
+
+      <a class="item" href="/dashboard">
+          <span class="item-avatar"><user-data field="photo-url"></user-data></span>
+
+      </a>
+      
+      <modal-button slot="falsey" selector="login-modal" class="item">
+              <span><img src="/img/google-login.svg" alt="google login"></span>
+      </modal-button>
+  </allow-if>
+
+  <modal-button selector="algolia-search" class="hide-lg">
+      <span class="item">
+          {{ partial "svg/search.svg" . }}
+      </span>
+  </modal-button> 
+
+
+
+  <div class="item">
+    <theme-btn>
+      <span slot="dark">{{ partial "svg/sun.svg" }}</span>
+      <span slot="light">{{ partial "svg/rainbow.svg" }}</span>
+      <span slot="colorful">{{ partial "svg/moon.svg" }}</span>
+    </theme-btn>
+  </div>
+
+
+
+  <menu-toggler selector="#mega">
+
+    <div slot="button" class="item mega-dropdown">
+      {{ partial "svg/ellipsis.svg" }}
+    </div>
+
+    <div slot="close" class="item mega-dropdown close">
+      {{ partial "svg/close.svg" }}
+    </div>
+  </menu-toggler>
+
+  <div id="mega" class="mega-menu">
+      <div class="mega-main">
+        <div class="row around-xs">
+          <div class="col-xs-12 col-md-4">
+            <h3>Content</h3>
+            <ul>
+              <li><a href="/lessons">Video Lessons</a></li>
+              <li><a href="/courses">Full Courses</a></li>
+              <li><a href="/snippets">Quick Snippets</a></li>
+              <li><a href="/tags">#tags</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-md-4">
+            <h3>People</h3>
+            <ul>
+              <li><a href="/mission">Manifesto</a></li>
+              <li><a href="/contributors">Contributors</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/login">Login</a></li>
+              <li><a href="{{ .Site.Data.links.slack }}">Slack Chat</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-md-4">
+            <h3>Tags</h3>
+            <ul>
+              <li><a href="/tags/angular">#angular</a></li>
+              <li><a href="/tags/flutter">#flutter</a></li>
+              <li><a href="/tags/firebase">#firebase</a></li>
+              <li><a href="/tags/stripe">#stripe</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row mega-footer between-xs">
+          <span>Fireship.io</span> <a href="/terms">terms</a> <a href="/privacy-policy">privacy</a> <a href="/style-guide">style guide</a>
+      </div>
+</nav>

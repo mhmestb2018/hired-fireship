@@ -1,0 +1,187 @@
+{{ define "main"}}
+
+<div class="row" style="margin-top: 3em;">
+  <div class="col-xs-12 col-md-6">
+    <div class="vid">
+      <iframe src="https://player.vimeo.com/video/321262943" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div> 
+  </div>
+  <div class="col-xs-12 col-md-6" style="justify-content: space-between; display: flex; flex-direction: column;">
+    <h1>Build and ship 🔥 your app ⚡ faster</h1>
+    <p class="text-lg">
+      Fireship.io is an ecosystem of detailed and practical resources for
+      developers who want to
+      <strong class="text-contrast">build and ship high-quality apps</strong>.      
+      
+    </p>
+
+    <p>
+      <a class="btn btn-orange" href="/lessons">Explore</a>
+      <google-login>
+        <button slot="signin" class="btn">
+          {{ partial "svg/google.svg" }} Login Now
+        </button>
+      </google-login>
+    </p>
+
+
+  <hr>
+    {{ partial "app-links" }}
+  </div>
+</div>
+
+<hr />
+<h2 class="text-center">Featured Courses</h2>
+<div class="row">
+
+
+    <a class="card card-course" href="/courses/flutter-firebase">
+      <div class="card-content">
+          <div class="text-center"><img src="/courses/flutter-firebase/img/featured.jpg"></div>
+          <h3>Flutter Firebase App from Scratch</h3>
+          Build a complex production-ready app from scratch with Flutter and Firebase 
+
+          <button class="btn btn-green btn-block">Start</button>
+      </div>
+    </a>
+
+    <a class="card card-course" href="/courses/firestore-data-modeling">
+      <div class="card-content">
+          <div class="text-center"><img src="/courses/firestore-data-modeling/img/featured.jpg"></div>
+          <h3>Firestore Data Modeling Course</h3>
+          Learn how to model data and optimize queries with Cloud Firestore. 
+  
+          <button class="btn btn-green btn-block">Start</button>
+      </div>
+  </a>
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+
+
+<div class="row row-home">
+  <div class="col-xs-12 col-sm-4 flex-center">
+    <a href="/courses"
+      ><img src="img/gif/internet.gif" alt="learn how to use the internet gif"
+    /></a>
+  </div>
+
+  <div class="col-xs-12 col-sm-8">
+    <h2>
+      <i>{{ partial "svg/backpack.svg" }}</i> Full Courses
+    </h2>
+    <p>
+      Courses are
+      <strong>linear multi-step projects with several hours of video</strong>.
+      They teach you how to build advanced real-world app features from start to
+      finish. <a class="btn btn-sm" href="/courses">Courses</a>
+    </p>
+  </div>
+</div> 
+
+
+<div class="row home-features">
+
+  <div class="flex-center col-xs-12 col-md-4">
+    <a class="card card-outline" href="{{ .Site.Data.links.slack }}">
+      <div class="card-content">
+        <h2>💬 Slack Chat</h2>
+        <p>
+          Join our Slack channel with over 3K users for project support, news,
+          and <strong>just having fun</strong>.
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <div class="flex-center col-xs-12 col-md-4">
+    <a class="card card-outline" href="{{ .Site.Data.links.github }}">
+      <div class="card-content">
+        <h2>👨‍💻 Code</h2>
+        <p>
+          Almost every lesson is <strong>supported by a Github repo</strong>. Even this very
+          website is open source.
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <div class="flex-center col-xs-12 col-md-4">
+        <a class="card card-outline" href="{{ .Site.Data.links.github }}">
+          <div class="card-content">
+                <h2>🍰 Cake</h2>
+                <p>
+                  There will be cake! Access additional <strong>free stuff</strong> like books, stickers,
+                  cheat sheets, swag, and more.
+                </p>
+          </div>
+        </a>
+      </div>
+
+
+</div>
+
+<div class="row row-home">
+  <div class="col-xs-12 col-sm-8">
+    <h2>
+      <i>{{ partial "svg/video.svg" }}</i> Weekly Video Episodes
+    </h2>
+    <p>
+      Lessons are <strong>non-linear ~10min episodes</strong> covering a variety
+      of topics that include a video, writeup, and github repo. <a class="btn btn-sm" href="{{ .Site.Data.links.youtube }}">Watch</a>
+    </p>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 flex-center">
+    <a href="{{ .Site.Data.links.youtube }}"
+      ><img
+        src="img/pages/yt.jpg"
+        alt="old film gif for video episodes on Fireship.io"
+    /></a>
+  </div>
+</div>
+
+
+<h2>Watch Recent Lessons</h2>
+
+<div class="row">
+  {{ range (first 6 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections)) . }}
+
+  <div class="col-sm-12 col-md-6 col-lg-4">{{ partial "lesson-card" . }}</div>
+
+  {{ end }}
+
+  <modal-button selector="algolia-search" class="col-xs-12">
+    <button class="btn btn-green">Search All Lessons</button>
+  </modal-button>
+</div>
+
+<div class="row row-home">
+    <div class="col-xs-12 col-sm-4 flex-center">
+      <a href="/about"
+        ><img
+          src="/img/pages/jeffdelaney-gde.webp" onerror="this.onerror=null; this.src='/img/pages/jeffdelaney-gde-lc.png'"
+          alt="Jeff Delaney Google Developer Expert"
+      /></a>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <h2>
+        <i>{{ partial "svg/microphone.svg" }}</i> Your Host
+      </h2>
+      <p>
+        Hi, I'm <strong>Jeff Delaney</strong> and I created this project to help people build and ship high-quality
+        apps. My mission is simple 👉 produce practical
+        content that <strong>increases developer happiness and productivity</strong> 🚀. 
+      </p>
+    </div>
+  </div>
+  
+
+{{ end }}

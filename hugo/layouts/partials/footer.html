@@ -1,0 +1,21 @@
+<footer>
+    <div class="github-link">You've hit rock bottom. Find an issue? Submit a <a href="{{ .Site.Data.links.github_content }}/{{ .File.Path }}">fix on Github</a></div>
+
+    <div>
+        <hr>
+        Copyright ©  {{ now.Format "2006"}} <br> Created with <i>{{ partial "svg/ng.svg"}}</i><i>{{ partial "svg/firebase.svg" }}</i>
+        by <a href="{{ .Site.Data.links.gde }}">Jeff Delaney</strong>
+        <i>{{ partial "svg/gde.svg"}}</i></a>
+        <hr>
+        <div style="padding: 20px 0; font-size: 1.5em;">
+        <a href="{{ .Site.Data.links.youtube }}"><i class="youtube">{{ partial "svg/youtube.svg"}}</a></i></a>
+        <a href="{{ .Site.Data.links.twitter }}"><i class="twitter">{{ partial "svg/twitter.svg"}}</i></a>
+        <a href="{{ .Site.Data.links.github }}"><i class="github">{{ partial "svg/github.svg"}}</a></i></a>
+        <a href="{{ .Site.Data.links.slack }}"><i class="slack">{{ partial "svg/slack.svg"}}</a></i></a>
+        </div>
+        
+        
+    </div>
+
+    {{ partial "app-links" }}
+</footer>

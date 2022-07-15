@@ -1,0 +1,54 @@
+
+
+{{ $active := .active }}
+
+<nav class="chapters-list">
+        <h2>Chapters</h2>
+  {{ range .chapters }}
+
+    {{ with .Params.chapter_start }}
+        <h3>{{ . }}</h3>
+    {{ end }}
+
+    <a href="{{ .RelPermalink }}">
+        <div class="box box-sm chapter-item {{ if eq $active .RelPermalink }}box-blue-bookmark{{ end }}">
+        <i class="box-icon" >
+            {{ if .Params.icon }}
+
+            {{ partial  (print "svg/" .Params.icon ".svg") }}
+
+            {{ else if .Params.emoji }}
+            <div>
+                <i class="emoji">{{ .Params.emoji }}</i>
+            </div>
+
+
+            {{ else }}
+
+            {{ partial "svg/video.svg" }}
+
+            {{ end }}
+
+
+
+        </i>
+
+        <div class="box-content">
+            <strong>{{ .Params.weight }} {{ .Title }}
+                {{ with .Params.free }}
+                <span class="tag tag-sm tag-pro">free</span> 
+                {{ end }}
+
+            </strong> 
+
+            <span class="subtext">{{ .Description }}</span>
+      
+
+        </div>
+
+      
+      </div>
+    </a>
+
+  {{ end }}
+</nav>
